@@ -23,7 +23,7 @@ namespace Mov_Reserva
                 try
                 {
                     StringBuilder sql = new StringBuilder();
-                    sql.AppendLine($"INSERT INTO mvtBibReserva(codItem, situacao, nomeItem, numExemplar, tipoItem, localizacao, codLeitor, nomeLeitor, dataReserva, prazoReserva) VALUES(@codItem, @situacao, @nomeItem, @numExemplar, @tipoItem, @localizacao, @codLeitor, @nomeLeitor, @dataReserva, @prazoReserva)");
+                    sql.AppendLine($"INSERT INTO mvtBibReserva(codItem, situacao, nomeItem, numExemplar, tipoItem, localizacao, codLeitor, nomeLeitor, dataReserva, prazoReserva, tipoMovimento) VALUES(@codItem, @situacao, @nomeItem, @numExemplar, @tipoItem, @localizacao, @codLeitor, @nomeLeitor, @dataReserva, @prazoReserva, @tipoMovimento)");
                     command.CommandText = sql.ToString();
                     command.Parameters.Add(new SqlParameter("@codItem", item.codItem));
                     command.Parameters.Add(new SqlParameter("@situacao", reserva.situacao));
@@ -35,6 +35,7 @@ namespace Mov_Reserva
                     command.Parameters.Add(new SqlParameter("@nomeLeitor", leitor.nomeLeitor));
                     command.Parameters.Add(new SqlParameter("@dataReserva", reserva.dataReserva));
                     command.Parameters.Add(new SqlParameter("@prazoReserva", reserva.prazoReserva));
+                    command.Parameters.Add(new SqlParameter("@tipoMovimento", reserva.prazoReserva));
                     command.Transaction = t;
                     command.ExecuteNonQuery();
                     t.Commit();
@@ -93,7 +94,7 @@ namespace Mov_Reserva
             using (SqlCommand command = Connection.CreateCommand())
             {
                 StringBuilder sql = new StringBuilder();
-                sql.AppendLine($"SELECT Leitor FROM mvtBibLeitor WHERE codLeitor = @codLeitor");
+                sql.AppendLine($"SELECT Leitor FROM mvtBibLeitor WHERE  codLeitor = @codLeitor");
                 command.CommandText = sql.ToString();
                 command.Parameters.AddWithValue("@codLeitor", leitor.codLeitor);
                 string result = Convert.ToString(command.ExecuteScalar());

@@ -52,12 +52,11 @@
             this.labels = new System.Windows.Forms.Label();
             this.cbxSituacao = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnCarregarItem = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnCarregarLeitor = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.dadosGrid = new System.Windows.Forms.DataGridView();
-            this.btnCarregarLeitor = new System.Windows.Forms.Button();
-            this.btnCarregarItem = new System.Windows.Forms.Button();
-            this.btnNovo = new System.Windows.Forms.Button();
             this.colCodItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTipoMovimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSituacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,6 +68,7 @@
             this.colNomeLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDataRes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrazoReserva = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnNovo = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dadosGrid)).BeginInit();
@@ -308,6 +308,18 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informações item";
             // 
+            // btnCarregarItem
+            // 
+            this.btnCarregarItem.FlatAppearance.BorderSize = 0;
+            this.btnCarregarItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCarregarItem.Image = global::Mov_Reserva.Properties.Resources.magnifying_glass_icon;
+            this.btnCarregarItem.Location = new System.Drawing.Point(186, 26);
+            this.btnCarregarItem.Name = "btnCarregarItem";
+            this.btnCarregarItem.Size = new System.Drawing.Size(23, 22);
+            this.btnCarregarItem.TabIndex = 13;
+            this.btnCarregarItem.UseVisualStyleBackColor = true;
+            this.btnCarregarItem.Click += new System.EventHandler(this.btnCarregarItem_Click_1);
+            // 
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -324,6 +336,18 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Informações leitor";
             this.groupBox2.UseCompatibleTextRendering = true;
+            // 
+            // btnCarregarLeitor
+            // 
+            this.btnCarregarLeitor.FlatAppearance.BorderSize = 0;
+            this.btnCarregarLeitor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCarregarLeitor.Image = global::Mov_Reserva.Properties.Resources.magnifying_glass_icon;
+            this.btnCarregarLeitor.Location = new System.Drawing.Point(186, 28);
+            this.btnCarregarLeitor.Name = "btnCarregarLeitor";
+            this.btnCarregarLeitor.Size = new System.Drawing.Size(23, 22);
+            this.btnCarregarLeitor.TabIndex = 17;
+            this.btnCarregarLeitor.UseVisualStyleBackColor = true;
+            this.btnCarregarLeitor.Click += new System.EventHandler(this.btnCarregarLeitor_Click);
             // 
             // btnSalvar
             // 
@@ -368,39 +392,6 @@
             this.dadosGrid.TabIndex = 26;
             this.dadosGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dadosGrid_CellDoubleClick);
             // 
-            // btnCarregarLeitor
-            // 
-            this.btnCarregarLeitor.FlatAppearance.BorderSize = 0;
-            this.btnCarregarLeitor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCarregarLeitor.Image = global::Mov_Reserva.Properties.Resources.magnifying_glass_icon;
-            this.btnCarregarLeitor.Location = new System.Drawing.Point(186, 28);
-            this.btnCarregarLeitor.Name = "btnCarregarLeitor";
-            this.btnCarregarLeitor.Size = new System.Drawing.Size(23, 22);
-            this.btnCarregarLeitor.TabIndex = 17;
-            this.btnCarregarLeitor.UseVisualStyleBackColor = true;
-            this.btnCarregarLeitor.Click += new System.EventHandler(this.btnCarregarLeitor_Click);
-            // 
-            // btnCarregarItem
-            // 
-            this.btnCarregarItem.FlatAppearance.BorderSize = 0;
-            this.btnCarregarItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCarregarItem.Image = global::Mov_Reserva.Properties.Resources.magnifying_glass_icon;
-            this.btnCarregarItem.Location = new System.Drawing.Point(186, 26);
-            this.btnCarregarItem.Name = "btnCarregarItem";
-            this.btnCarregarItem.Size = new System.Drawing.Size(23, 22);
-            this.btnCarregarItem.TabIndex = 13;
-            this.btnCarregarItem.UseVisualStyleBackColor = true;
-            this.btnCarregarItem.Click += new System.EventHandler(this.btnCarregarItem_Click_1);
-            // 
-            // btnNovo
-            // 
-            this.btnNovo.Location = new System.Drawing.Point(7, 9);
-            this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(81, 22);
-            this.btnNovo.TabIndex = 27;
-            this.btnNovo.Text = "Novo";
-            this.btnNovo.UseVisualStyleBackColor = true;
-            // 
             // colCodItem
             // 
             this.colCodItem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -409,7 +400,6 @@
             this.colCodItem.MinimumWidth = 6;
             this.colCodItem.Name = "colCodItem";
             this.colCodItem.ReadOnly = true;
-            this.colCodItem.Width = 108;
             // 
             // colTipoMovimento
             // 
@@ -484,6 +474,16 @@
             this.colPrazoReserva.MinimumWidth = 6;
             this.colPrazoReserva.Name = "colPrazoReserva";
             this.colPrazoReserva.ReadOnly = true;
+            // 
+            // btnNovo
+            // 
+            this.btnNovo.Location = new System.Drawing.Point(7, 9);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(81, 22);
+            this.btnNovo.TabIndex = 27;
+            this.btnNovo.Text = "Novo";
+            this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // MovReserva
             // 

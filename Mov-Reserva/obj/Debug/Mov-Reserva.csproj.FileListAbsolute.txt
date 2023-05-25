@@ -22,3 +22,16 @@ C:\Users\estagiario3\Desktop\Movtech-Paciente-Api\movtech - Mov Reserva\Mov-Rese
 C:\Users\estagiario3\Desktop\Movtech-Paciente-Api\movtech - Mov Reserva\Mov-Reserva\obj\Debug\Mov-Reserva.exe
 C:\Users\estagiario3\Desktop\Movtech-Paciente-Api\movtech - Mov Reserva\Mov-Reserva\obj\Debug\Mov-Reserva.pdb
 C:\Users\estagiario3\Desktop\Movtech-Paciente-Api\movtech - Mov Reserva\Mov-Reserva\obj\Debug\Mov_Reserva.SelecionarLeitor.resources
+C:\Users\vinic\OneDrive\Documentos\Projetos movtech - estagio\Projeto Biblioteca\Mov Reserva\Mov-Reserva\bin\Debug\Mov-Reserva.exe.config
+C:\Users\vinic\OneDrive\Documentos\Projetos movtech - estagio\Projeto Biblioteca\Mov Reserva\Mov-Reserva\bin\Debug\Mov-Reserva.exe
+C:\Users\vinic\OneDrive\Documentos\Projetos movtech - estagio\Projeto Biblioteca\Mov Reserva\Mov-Reserva\bin\Debug\Mov-Reserva.pdb
+C:\Users\vinic\OneDrive\Documentos\Projetos movtech - estagio\Projeto Biblioteca\Mov Reserva\Mov-Reserva\obj\Debug\Mov-Reserva.csproj.AssemblyReference.cache
+C:\Users\vinic\OneDrive\Documentos\Projetos movtech - estagio\Projeto Biblioteca\Mov Reserva\Mov-Reserva\obj\Debug\Mov-Reserva.csproj.SuggestedBindingRedirects.cache
+C:\Users\vinic\OneDrive\Documentos\Projetos movtech - estagio\Projeto Biblioteca\Mov Reserva\Mov-Reserva\obj\Debug\Mov_Reserva.MovReserva.resources
+C:\Users\vinic\OneDrive\Documentos\Projetos movtech - estagio\Projeto Biblioteca\Mov Reserva\Mov-Reserva\obj\Debug\Mov_Reserva.Properties.Resources.resources
+C:\Users\vinic\OneDrive\Documentos\Projetos movtech - estagio\Projeto Biblioteca\Mov Reserva\Mov-Reserva\obj\Debug\Mov_Reserva.SelecionarItemcs.resources
+C:\Users\vinic\OneDrive\Documentos\Projetos movtech - estagio\Projeto Biblioteca\Mov Reserva\Mov-Reserva\obj\Debug\Mov_Reserva.SelecionarLeitor.resources
+C:\Users\vinic\OneDrive\Documentos\Projetos movtech - estagio\Projeto Biblioteca\Mov Reserva\Mov-Reserva\obj\Debug\Mov-Reserva.csproj.GenerateResource.cache
+C:\Users\vinic\OneDrive\Documentos\Projetos movtech - estagio\Projeto Biblioteca\Mov Reserva\Mov-Reserva\obj\Debug\Mov-Reserva.csproj.CoreCompileInputs.cache
+C:\Users\vinic\OneDrive\Documentos\Projetos movtech - estagio\Projeto Biblioteca\Mov Reserva\Mov-Reserva\obj\Debug\Mov-Reserva.exe
+C:\Users\vinic\OneDrive\Documentos\Projetos movtech - estagio\Projeto Biblioteca\Mov Reserva\Mov-Reserva\obj\Debug\Mov-Reserva.pdb

@@ -160,8 +160,10 @@ namespace Mov_Reserva
                                 localizacao = txtLocalizacao.Text
 
                             });
-                        MessageBox.Show("Item salvo com sucesso!");
-                        
+                        MessageBox.Show("Reserva registrada com sucesso!");
+                        LimpaCampos();
+
+
                     }
                     CarregarUsuariosGrid();
                 }
@@ -185,6 +187,25 @@ namespace Mov_Reserva
             txtNomeLeitor.Text = dadosGrid.Rows[e.RowIndex].Cells[colNomeLeitor.Index].Value + "";
             dtpDataReserva.Text = dadosGrid.Rows[e.RowIndex].Cells[colDataRes.Index].Value + "";
             dtpPrazoReserva.Text = dadosGrid.Rows[e.RowIndex].Cells[colPrazoReserva.Index].Value + "";
+        }
+        public void LimpaCampos()
+        {
+            txtCodItem.Text = "";
+            cbxTipoMovimento.SelectedIndex = -1;
+            txtExemplar.Text = "";
+            cbxSituacao.SelectedIndex = -1;
+            txtNomeItem.Text = "";
+            txtLocalizacao.Text = "";
+            txtTipoItem.Text = "";
+            txtCodLeitor.Text = "";
+            txtNomeLeitor.Text = "";
+            dtpDataReserva.Text = null;
+            dtpPrazoReserva.Text = null;
+        }
+
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            LimpaCampos();
         }
     }
 }
