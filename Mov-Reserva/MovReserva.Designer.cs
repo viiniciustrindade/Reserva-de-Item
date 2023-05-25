@@ -52,24 +52,23 @@
             this.labels = new System.Windows.Forms.Label();
             this.cbxSituacao = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnCarregarItem = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.dadosGrid = new System.Windows.Forms.DataGridView();
-            this.colCodItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNomeItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCodVolume = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNumExemplar = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colColecao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLocal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEdicao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAutor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLocalizacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEditora = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTipoItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSecao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCarregarLeitor = new System.Windows.Forms.Button();
+            this.btnCarregarItem = new System.Windows.Forms.Button();
+            this.btnNovo = new System.Windows.Forms.Button();
+            this.colCodItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTipoMovimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSituacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNomeItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNumExemplar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLocalizacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTipoItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCodLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNomeLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDataRes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrazoReserva = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dadosGrid)).BeginInit();
@@ -77,12 +76,13 @@
             // 
             // cbxTipoMovimento
             // 
+            this.cbxTipoMovimento.BackColor = System.Drawing.SystemColors.Window;
             this.cbxTipoMovimento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxTipoMovimento.FormattingEnabled = true;
             this.cbxTipoMovimento.Items.AddRange(new object[] {
             "Reservar",
             "Devolver"});
-            this.cbxTipoMovimento.Location = new System.Drawing.Point(122, 12);
+            this.cbxTipoMovimento.Location = new System.Drawing.Point(210, 9);
             this.cbxTipoMovimento.Name = "cbxTipoMovimento";
             this.cbxTipoMovimento.Size = new System.Drawing.Size(94, 24);
             this.cbxTipoMovimento.TabIndex = 1;
@@ -91,7 +91,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 15);
+            this.label1.Location = new System.Drawing.Point(100, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(104, 16);
             this.label1.TabIndex = 2;
@@ -108,8 +108,10 @@
             // 
             // txtCodItem
             // 
+            this.txtCodItem.BackColor = System.Drawing.SystemColors.Window;
             this.txtCodItem.Location = new System.Drawing.Point(92, 26);
             this.txtCodItem.Name = "txtCodItem";
+            this.txtCodItem.ReadOnly = true;
             this.txtCodItem.Size = new System.Drawing.Size(88, 22);
             this.txtCodItem.TabIndex = 4;
             // 
@@ -128,8 +130,10 @@
             // 
             this.txtNomeItem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtNomeItem.BackColor = System.Drawing.SystemColors.Window;
             this.txtNomeItem.Location = new System.Drawing.Point(293, 26);
             this.txtNomeItem.Name = "txtNomeItem";
+            this.txtNomeItem.ReadOnly = true;
             this.txtNomeItem.Size = new System.Drawing.Size(607, 22);
             this.txtNomeItem.TabIndex = 6;
             // 
@@ -144,15 +148,19 @@
             // 
             // txtExemplar
             // 
+            this.txtExemplar.BackColor = System.Drawing.SystemColors.Window;
             this.txtExemplar.Location = new System.Drawing.Point(92, 54);
             this.txtExemplar.Name = "txtExemplar";
+            this.txtExemplar.ReadOnly = true;
             this.txtExemplar.Size = new System.Drawing.Size(88, 22);
             this.txtExemplar.TabIndex = 8;
             // 
             // txtTipoItem
             // 
+            this.txtTipoItem.BackColor = System.Drawing.SystemColors.Window;
             this.txtTipoItem.Location = new System.Drawing.Point(293, 54);
             this.txtTipoItem.Name = "txtTipoItem";
+            this.txtTipoItem.ReadOnly = true;
             this.txtTipoItem.Size = new System.Drawing.Size(254, 22);
             this.txtTipoItem.TabIndex = 9;
             // 
@@ -176,8 +184,10 @@
             // 
             // txtLocalizacao
             // 
+            this.txtLocalizacao.BackColor = System.Drawing.SystemColors.Window;
             this.txtLocalizacao.Location = new System.Drawing.Point(639, 54);
             this.txtLocalizacao.Name = "txtLocalizacao";
+            this.txtLocalizacao.ReadOnly = true;
             this.txtLocalizacao.Size = new System.Drawing.Size(261, 22);
             this.txtLocalizacao.TabIndex = 12;
             // 
@@ -192,18 +202,22 @@
             // 
             // txtCodLeitor
             // 
+            this.txtCodLeitor.BackColor = System.Drawing.SystemColors.Window;
             this.txtCodLeitor.Location = new System.Drawing.Point(96, 28);
             this.txtCodLeitor.Name = "txtCodLeitor";
-            this.txtCodLeitor.Size = new System.Drawing.Size(92, 22);
+            this.txtCodLeitor.ReadOnly = true;
+            this.txtCodLeitor.Size = new System.Drawing.Size(84, 22);
             this.txtCodLeitor.TabIndex = 14;
             // 
             // txtNomeLeitor
             // 
             this.txtNomeLeitor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNomeLeitor.Location = new System.Drawing.Point(305, 28);
+            this.txtNomeLeitor.BackColor = System.Drawing.SystemColors.Window;
+            this.txtNomeLeitor.Location = new System.Drawing.Point(297, 28);
             this.txtNomeLeitor.Name = "txtNomeLeitor";
-            this.txtNomeLeitor.Size = new System.Drawing.Size(595, 22);
+            this.txtNomeLeitor.ReadOnly = true;
+            this.txtNomeLeitor.Size = new System.Drawing.Size(603, 22);
             this.txtNomeLeitor.TabIndex = 15;
             // 
             // label8
@@ -211,7 +225,7 @@
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(223, 31);
+            this.label8.Location = new System.Drawing.Point(215, 31);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(76, 16);
             this.label8.TabIndex = 16;
@@ -294,17 +308,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informações item";
             // 
-            // btnCarregarItem
-            // 
-            this.btnCarregarItem.FlatAppearance.BorderSize = 0;
-            this.btnCarregarItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCarregarItem.Image = global::Mov_Reserva.Properties.Resources.magnifying_glass_icon;
-            this.btnCarregarItem.Location = new System.Drawing.Point(186, 26);
-            this.btnCarregarItem.Name = "btnCarregarItem";
-            this.btnCarregarItem.Size = new System.Drawing.Size(23, 22);
-            this.btnCarregarItem.TabIndex = 13;
-            this.btnCarregarItem.UseVisualStyleBackColor = true;
-            // 
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -331,6 +334,7 @@
             this.btnSalvar.TabIndex = 25;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // dadosGrid
             // 
@@ -344,18 +348,16 @@
             this.dadosGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dadosGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colCodItem,
+            this.colTipoMovimento,
+            this.colSituacao,
             this.colNomeItem,
-            this.colCodVolume,
             this.colNumExemplar,
-            this.colColecao,
-            this.colLocal,
-            this.colEdicao,
-            this.colAutor,
             this.colLocalizacao,
-            this.colStatus,
-            this.colEditora,
             this.colTipoItem,
-            this.colSecao});
+            this.colCodLeitor,
+            this.colNomeLeitor,
+            this.colDataRes,
+            this.colPrazoReserva});
             this.dadosGrid.Location = new System.Drawing.Point(7, 248);
             this.dadosGrid.Margin = new System.Windows.Forms.Padding(4);
             this.dadosGrid.Name = "dadosGrid";
@@ -364,32 +366,72 @@
             this.dadosGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dadosGrid.Size = new System.Drawing.Size(906, 320);
             this.dadosGrid.TabIndex = 26;
+            this.dadosGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dadosGrid_CellDoubleClick);
+            // 
+            // btnCarregarLeitor
+            // 
+            this.btnCarregarLeitor.FlatAppearance.BorderSize = 0;
+            this.btnCarregarLeitor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCarregarLeitor.Image = global::Mov_Reserva.Properties.Resources.magnifying_glass_icon;
+            this.btnCarregarLeitor.Location = new System.Drawing.Point(186, 28);
+            this.btnCarregarLeitor.Name = "btnCarregarLeitor";
+            this.btnCarregarLeitor.Size = new System.Drawing.Size(23, 22);
+            this.btnCarregarLeitor.TabIndex = 17;
+            this.btnCarregarLeitor.UseVisualStyleBackColor = true;
+            this.btnCarregarLeitor.Click += new System.EventHandler(this.btnCarregarLeitor_Click);
+            // 
+            // btnCarregarItem
+            // 
+            this.btnCarregarItem.FlatAppearance.BorderSize = 0;
+            this.btnCarregarItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCarregarItem.Image = global::Mov_Reserva.Properties.Resources.magnifying_glass_icon;
+            this.btnCarregarItem.Location = new System.Drawing.Point(186, 26);
+            this.btnCarregarItem.Name = "btnCarregarItem";
+            this.btnCarregarItem.Size = new System.Drawing.Size(23, 22);
+            this.btnCarregarItem.TabIndex = 13;
+            this.btnCarregarItem.UseVisualStyleBackColor = true;
+            this.btnCarregarItem.Click += new System.EventHandler(this.btnCarregarItem_Click_1);
+            // 
+            // btnNovo
+            // 
+            this.btnNovo.Location = new System.Drawing.Point(7, 9);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(81, 22);
+            this.btnNovo.TabIndex = 27;
+            this.btnNovo.Text = "Novo";
+            this.btnNovo.UseVisualStyleBackColor = true;
             // 
             // colCodItem
             // 
             this.colCodItem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.colCodItem.FillWeight = 152.2843F;
-            this.colCodItem.HeaderText = "Codigo";
+            this.colCodItem.HeaderText = "Codigo item";
             this.colCodItem.MinimumWidth = 6;
             this.colCodItem.Name = "colCodItem";
             this.colCodItem.ReadOnly = true;
-            this.colCodItem.Width = 80;
+            this.colCodItem.Width = 108;
+            // 
+            // colTipoMovimento
+            // 
+            this.colTipoMovimento.HeaderText = "Tipo Movimento";
+            this.colTipoMovimento.MinimumWidth = 6;
+            this.colTipoMovimento.Name = "colTipoMovimento";
+            this.colTipoMovimento.ReadOnly = true;
+            this.colTipoMovimento.Visible = false;
+            // 
+            // colSituacao
+            // 
+            this.colSituacao.HeaderText = "Situação";
+            this.colSituacao.MinimumWidth = 6;
+            this.colSituacao.Name = "colSituacao";
+            this.colSituacao.ReadOnly = true;
             // 
             // colNomeItem
             // 
-            this.colNomeItem.HeaderText = "Livro";
+            this.colNomeItem.HeaderText = "Item";
             this.colNomeItem.MinimumWidth = 6;
             this.colNomeItem.Name = "colNomeItem";
             this.colNomeItem.ReadOnly = true;
-            // 
-            // colCodVolume
-            // 
-            this.colCodVolume.FillWeight = 73.85786F;
-            this.colCodVolume.HeaderText = "Volume";
-            this.colCodVolume.MinimumWidth = 6;
-            this.colCodVolume.Name = "colCodVolume";
-            this.colCodVolume.ReadOnly = true;
-            this.colCodVolume.Visible = false;
             // 
             // colNumExemplar
             // 
@@ -399,36 +441,6 @@
             this.colNumExemplar.ReadOnly = true;
             this.colNumExemplar.Visible = false;
             // 
-            // colColecao
-            // 
-            this.colColecao.HeaderText = "Coleção";
-            this.colColecao.MinimumWidth = 6;
-            this.colColecao.Name = "colColecao";
-            this.colColecao.ReadOnly = true;
-            this.colColecao.Visible = false;
-            // 
-            // colLocal
-            // 
-            this.colLocal.HeaderText = "Local";
-            this.colLocal.MinimumWidth = 6;
-            this.colLocal.Name = "colLocal";
-            this.colLocal.ReadOnly = true;
-            // 
-            // colEdicao
-            // 
-            this.colEdicao.HeaderText = "Ano de Edição";
-            this.colEdicao.MinimumWidth = 6;
-            this.colEdicao.Name = "colEdicao";
-            this.colEdicao.ReadOnly = true;
-            this.colEdicao.Visible = false;
-            // 
-            // colAutor
-            // 
-            this.colAutor.HeaderText = "Autor";
-            this.colAutor.MinimumWidth = 6;
-            this.colAutor.Name = "colAutor";
-            this.colAutor.ReadOnly = true;
-            // 
             // colLocalizacao
             // 
             this.colLocalizacao.HeaderText = "Localização";
@@ -436,20 +448,6 @@
             this.colLocalizacao.Name = "colLocalizacao";
             this.colLocalizacao.ReadOnly = true;
             this.colLocalizacao.Visible = false;
-            // 
-            // colStatus
-            // 
-            this.colStatus.HeaderText = "Status";
-            this.colStatus.MinimumWidth = 6;
-            this.colStatus.Name = "colStatus";
-            this.colStatus.ReadOnly = true;
-            // 
-            // colEditora
-            // 
-            this.colEditora.HeaderText = "Editora";
-            this.colEditora.MinimumWidth = 6;
-            this.colEditora.Name = "colEditora";
-            this.colEditora.ReadOnly = true;
             // 
             // colTipoItem
             // 
@@ -459,29 +457,40 @@
             this.colTipoItem.ReadOnly = true;
             this.colTipoItem.Visible = false;
             // 
-            // colSecao
+            // colCodLeitor
             // 
-            this.colSecao.HeaderText = "Seção";
-            this.colSecao.MinimumWidth = 6;
-            this.colSecao.Name = "colSecao";
-            this.colSecao.ReadOnly = true;
+            this.colCodLeitor.HeaderText = "Codigo Leitor";
+            this.colCodLeitor.MinimumWidth = 6;
+            this.colCodLeitor.Name = "colCodLeitor";
+            this.colCodLeitor.ReadOnly = true;
             // 
-            // btnCarregarLeitor
+            // colNomeLeitor
             // 
-            this.btnCarregarLeitor.FlatAppearance.BorderSize = 0;
-            this.btnCarregarLeitor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCarregarLeitor.Image = global::Mov_Reserva.Properties.Resources.magnifying_glass_icon;
-            this.btnCarregarLeitor.Location = new System.Drawing.Point(194, 28);
-            this.btnCarregarLeitor.Name = "btnCarregarLeitor";
-            this.btnCarregarLeitor.Size = new System.Drawing.Size(23, 22);
-            this.btnCarregarLeitor.TabIndex = 17;
-            this.btnCarregarLeitor.UseVisualStyleBackColor = true;
+            this.colNomeLeitor.HeaderText = "Nome Leitor";
+            this.colNomeLeitor.MinimumWidth = 6;
+            this.colNomeLeitor.Name = "colNomeLeitor";
+            this.colNomeLeitor.ReadOnly = true;
+            // 
+            // colDataRes
+            // 
+            this.colDataRes.HeaderText = "Data reserva";
+            this.colDataRes.MinimumWidth = 6;
+            this.colDataRes.Name = "colDataRes";
+            this.colDataRes.ReadOnly = true;
+            // 
+            // colPrazoReserva
+            // 
+            this.colPrazoReserva.HeaderText = "Prazo Reserva";
+            this.colPrazoReserva.MinimumWidth = 6;
+            this.colPrazoReserva.Name = "colPrazoReserva";
+            this.colPrazoReserva.ReadOnly = true;
             // 
             // MovReserva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(921, 574);
+            this.Controls.Add(this.btnNovo);
             this.Controls.Add(this.dadosGrid);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.cbxSituacao);
@@ -537,20 +546,19 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.DataGridView dadosGrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCodItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNomeItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCodVolume;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNumExemplar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colColecao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colLocal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEdicao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAutor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colLocalizacao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEditora;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTipoItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSecao;
         private System.Windows.Forms.Button btnCarregarLeitor;
+        private System.Windows.Forms.Button btnNovo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCodItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTipoMovimento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSituacao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNomeItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNumExemplar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colLocalizacao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTipoItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCodLeitor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNomeLeitor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDataRes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPrazoReserva;
     }
 }
 

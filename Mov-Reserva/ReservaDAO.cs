@@ -23,7 +23,7 @@ namespace Mov_Reserva
                 try
                 {
                     StringBuilder sql = new StringBuilder();
-                    sql.AppendLine($"INSERT INTO mvtBibReserva(codItem, situacao, nomeItem, numExemplar, tipoItem, localizacao, codLeitor, nomeLeitor, dataReserva, prazoReserva, encerrar) VALUES(@codItem, @situacao, @nomeItem, @numExemplar, @tipoItem, @localizacao, @codLeitor, @nomeLeitor, @dataReserva, @prazoReserva, @encerrar)");
+                    sql.AppendLine($"INSERT INTO mvtBibReserva(codItem, situacao, nomeItem, numExemplar, tipoItem, localizacao, codLeitor, nomeLeitor, dataReserva, prazoReserva) VALUES(@codItem, @situacao, @nomeItem, @numExemplar, @tipoItem, @localizacao, @codLeitor, @nomeLeitor, @dataReserva, @prazoReserva)");
                     command.CommandText = sql.ToString();
                     command.Parameters.Add(new SqlParameter("@codItem", item.codItem));
                     command.Parameters.Add(new SqlParameter("@situacao", reserva.situacao));
@@ -35,7 +35,6 @@ namespace Mov_Reserva
                     command.Parameters.Add(new SqlParameter("@nomeLeitor", leitor.nomeLeitor));
                     command.Parameters.Add(new SqlParameter("@dataReserva", reserva.dataReserva));
                     command.Parameters.Add(new SqlParameter("@prazoReserva", reserva.prazoReserva));
-                    command.Parameters.Add(new SqlParameter("@encerrar", reserva.encerrar));
                     command.Transaction = t;
                     command.ExecuteNonQuery();
                     t.Commit();
