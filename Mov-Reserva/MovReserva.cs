@@ -20,6 +20,7 @@ namespace Mov_Reserva
         public void AbrirSelecaoItem()
         { 
             SelecionarItemcs selecionar = new SelecionarItemcs();
+            selecionar.tipoMovimento = cbxTipoMovimento.Text;
             selecionar.ShowDialog();
             txtCodItem.Text = selecionar.codItem;
             txtNomeItem.Text = selecionar.nomeItem;
@@ -69,11 +70,15 @@ namespace Mov_Reserva
             if (cbxTipoMovimento.Text == "Reservar")
             {
                 cbxSituacao.Text = "Reservado";
+                txtCodLeitor.Enabled = true;
             }
             else if (cbxTipoMovimento.Text == "Devolver")
             {
                 cbxSituacao.Text = "Disponivel";
+                dtpDataReserva.Enabled = false;
+                txtCodLeitor.Enabled=false;
             }
+            
         }
 
         private void btnCarregarItem_Click_1(object sender, EventArgs e)
@@ -160,6 +165,12 @@ namespace Mov_Reserva
                                 localizacao = txtLocalizacao.Text
 
                             });
+                        dao.AlterarStatusItem(new ItemModel() {
+                            codItem = txtCodItem.Text
+                        },new ReservaModel()
+                        {
+                           situacao = cbxSituacao.Text
+                        });
                         MessageBox.Show("Reserva registrada com sucesso!");
                         LimpaCampos();
 
@@ -206,6 +217,26 @@ namespace Mov_Reserva
         private void btnNovo_Click(object sender, EventArgs e)
         {
             LimpaCampos();
+        }
+
+        private void txtCodItem_TextChanged(object sender, EventArgs e)
+        {
+            if (cbxTipoMovimento.Text == "Devolver") 
+            {
+                using (SqlConnection connection = DaoConnection.GetConexao())
+                {
+                    ReservaDAO dao = new ReservaDAO(connection);
+                    txtNomeLeitor.Text = dao.GetLeitorAuto(new ItemModel()
+                    {
+                        codItem=txtCodItem.Text
+                    });
+                    txtCodLeitor.Text = dao.GetCodLeitorAuto(new ItemModel()
+                    {
+                        codItem = txtCodItem.Text
+                    });
+
+                }
+                }
         }
     }
 }

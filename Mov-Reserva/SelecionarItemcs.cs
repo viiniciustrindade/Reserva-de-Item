@@ -22,6 +22,7 @@ namespace Mov_Reserva
         public string exemplar { get; private set; }
         public string localizacao { get; private set; }
         public string tipoItem { get; private set; }
+        public string tipoMovimento { get; set; }
 
         public void FecharFormulario()
         {
@@ -36,19 +37,39 @@ namespace Mov_Reserva
         private void CarregarUsuariosGrid()
         {
             dadosGrid.Rows.Clear();
-            using (SqlConnection connection = DaoConnection.GetConexao())
+            if (tipoMovimento == "Devolver")
             {
-                ItemDAO dao = new ItemDAO(connection);
-                List<ItemModel> itens = dao.GetItens();
-                foreach (ItemModel item in itens)
+                using (SqlConnection connection = DaoConnection.GetConexao())
                 {
-                    DataGridViewRow row = dadosGrid.Rows[dadosGrid.Rows.Add()];
-                    row.Cells[colCodItem.Index].Value = item.codItem;
-                    row.Cells[colNomeItem.Index].Value = item.nomeItem;
-                    row.Cells[colNumExemplar.Index].Value = item.numExemplar;
-                    row.Cells[colLocalizacao.Index].Value = item.localizacao;
-                    row.Cells[colTipoItem.Index].Value = item.tipoItem;
+                    ItemDAO dao = new ItemDAO(connection);
+                    List<ItemModel> itens = dao.GetTipoItens();
+                    foreach (ItemModel item in itens)
+                    {
+                        DataGridViewRow row = dadosGrid.Rows[dadosGrid.Rows.Add()];
+                        row.Cells[colCodItem.Index].Value = item.codItem;
+                        row.Cells[colNomeItem.Index].Value = item.nomeItem;
+                        row.Cells[colNumExemplar.Index].Value = item.numExemplar;
+                        row.Cells[colLocalizacao.Index].Value = item.localizacao;
+                        row.Cells[colTipoItem.Index].Value = item.tipoItem;
+                    }
                 }
+            }
+            else {
+                using (SqlConnection connection = DaoConnection.GetConexao())
+                {
+                    ItemDAO dao = new ItemDAO(connection);
+                    List<ItemModel> itens = dao.GetItens();
+                    foreach (ItemModel item in itens)
+                    {
+                        DataGridViewRow row = dadosGrid.Rows[dadosGrid.Rows.Add()];
+                        row.Cells[colCodItem.Index].Value = item.codItem;
+                        row.Cells[colNomeItem.Index].Value = item.nomeItem;
+                        row.Cells[colNumExemplar.Index].Value = item.numExemplar;
+                        row.Cells[colLocalizacao.Index].Value = item.localizacao;
+                        row.Cells[colTipoItem.Index].Value = item.tipoItem;
+                    }
+                }
+
             }
         }
         private void SelecionarItemcs_Load(object sender, EventArgs e)

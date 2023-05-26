@@ -48,6 +48,30 @@ namespace Mov_Reserva
                 }
             }
         }
+        public void AlterarStatusItem(ItemModel item, ReservaModel reserva)
+        {
+            using (SqlCommand command = Connection.CreateCommand())
+            {
+                SqlTransaction t = Connection.BeginTransaction();
+                try
+                {
+                    StringBuilder sql = new StringBuilder();
+                    sql.AppendLine($"UPDATE mvtBibItemAcervo SET tipoStatus = @situacao WHERE codItem = @codItem");
+                    command.CommandText = sql.ToString();
+                    command.Parameters.Add(new SqlParameter("@codItem", item.codItem));
+                    command.Parameters.Add(new SqlParameter("@situacao", reserva.situacao));
+                    command.Transaction = t;
+                    command.ExecuteNonQuery();
+                    t.Commit();
+                }
+
+                catch (Exception ex)
+                {
+                    t.Rollback();
+                    throw ex;
+                }
+            }
+        }
         public bool Validacoes(ReservaModel reserva, LeitorModel leitor, ItemModel item)
         {
             if (string.IsNullOrEmpty(reserva.tipoMovimento) || string.IsNullOrWhiteSpace(reserva.tipoMovimento))
@@ -88,6 +112,40 @@ namespace Mov_Reserva
                 int count = Convert.ToInt32(command.ExecuteScalar());
                 return count;
             }
+        }
+        public string GetLeitorAuto(ItemModel item)
+        {
+            using (SqlCommand command = Connection.CreateCommand())
+            {
+                StringBuilder sql = new StringBuilder();
+                sql.AppendLine($"SELECT nomeLeitor FROM mvtBibReserva WHERE  situacao = 'Reservado' and codItem = @codItem");
+                command.CommandText = sql.ToString();
+                command.Parameters.AddWithValue("@codItem", item.codItem);
+                string result = Convert.ToString(command.ExecuteScalar());
+
+                if (result != null)
+                {
+                    return result.ToString();
+                }
+            }
+            return string.Empty;
+        }
+        public string GetCodLeitorAuto(ItemModel item)
+        {
+            using (SqlCommand command = Connection.CreateCommand())
+            {
+                StringBuilder sql = new StringBuilder();
+                sql.AppendLine($"SELECT codLeitor FROM mvtBibReserva WHERE  situacao = 'Reservado' and codItem = @codItem");
+                command.CommandText = sql.ToString();
+                command.Parameters.AddWithValue("@codItem", item.codItem);
+                string result = Convert.ToString(command.ExecuteScalar());
+
+                if (result != null)
+                {
+                    return result.ToString();
+                }
+            }
+            return string.Empty;
         }
         public string GetNomeLeitor(LeitorModel leitor)
         {

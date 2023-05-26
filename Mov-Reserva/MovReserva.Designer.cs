@@ -57,6 +57,7 @@
             this.btnCarregarLeitor = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.dadosGrid = new System.Windows.Forms.DataGridView();
+            this.btnNovo = new System.Windows.Forms.Button();
             this.colCodItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTipoMovimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSituacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,7 +69,6 @@
             this.colNomeLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDataRes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrazoReserva = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnNovo = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dadosGrid)).BeginInit();
@@ -114,6 +114,7 @@
             this.txtCodItem.ReadOnly = true;
             this.txtCodItem.Size = new System.Drawing.Size(88, 22);
             this.txtCodItem.TabIndex = 4;
+            this.txtCodItem.TextChanged += new System.EventHandler(this.txtCodItem_TextChanged);
             // 
             // label3
             // 
@@ -392,6 +393,16 @@
             this.dadosGrid.TabIndex = 26;
             this.dadosGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dadosGrid_CellDoubleClick);
             // 
+            // btnNovo
+            // 
+            this.btnNovo.Location = new System.Drawing.Point(8, 9);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(81, 24);
+            this.btnNovo.TabIndex = 27;
+            this.btnNovo.Text = "Novo";
+            this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
+            // 
             // colCodItem
             // 
             this.colCodItem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -400,6 +411,7 @@
             this.colCodItem.MinimumWidth = 6;
             this.colCodItem.Name = "colCodItem";
             this.colCodItem.ReadOnly = true;
+            this.colCodItem.Width = 108;
             // 
             // colTipoMovimento
             // 
@@ -453,6 +465,7 @@
             this.colCodLeitor.MinimumWidth = 6;
             this.colCodLeitor.Name = "colCodLeitor";
             this.colCodLeitor.ReadOnly = true;
+            this.colCodLeitor.Visible = false;
             // 
             // colNomeLeitor
             // 
@@ -474,16 +487,6 @@
             this.colPrazoReserva.MinimumWidth = 6;
             this.colPrazoReserva.Name = "colPrazoReserva";
             this.colPrazoReserva.ReadOnly = true;
-            // 
-            // btnNovo
-            // 
-            this.btnNovo.Location = new System.Drawing.Point(7, 9);
-            this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(81, 22);
-            this.btnNovo.TabIndex = 27;
-            this.btnNovo.Text = "Novo";
-            this.btnNovo.UseVisualStyleBackColor = true;
-            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // MovReserva
             // 
