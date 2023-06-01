@@ -47,6 +47,7 @@ namespace Mov_Reserva
                 {
                     DataGridViewRow row = dadosGrid.Rows[dadosGrid.Rows.Add()];
                     row.Cells[colCodItem.Index].Value = reserva.ItemModel.codItem;
+                    row.Cells[colCodReserva.Index].Value = reserva.codReserva;
                     row.Cells[colNomeItem.Index].Value = reserva.ItemModel.nomeItem;
                     row.Cells[colNumExemplar.Index].Value = reserva.ItemModel.numExemplar;
                     row.Cells[colLocalizacao.Index].Value = reserva.ItemModel.localizacao;
@@ -76,7 +77,12 @@ namespace Mov_Reserva
             {
                 cbxSituacao.Text = "Disponivel";
                 dtpDataReserva.Enabled = false;
-                txtCodLeitor.Enabled=false;
+                txtCodLeitor.Enabled = false;
+            }
+            else if (cbxTipoMovimento.Text == "Emprestar")
+            {
+                cbxSituacao.Text = "Emprestado";
+                txtCodLeitor.Enabled = true;
             }
             
         }
@@ -142,8 +148,36 @@ namespace Mov_Reserva
                         int count = dao.Verifica(new ItemModel()
                         {
                             codItem = txtCodItem.Text
+                        },
+                        new LeitorModel() 
+                        { 
+                            codLeitor = txtCodLeitor.Text
                         });
-                                               
+                        if (count > 0)
+                        {
+                            dao.Alterar(new ReservaModel() { 
+                                situacao = cbxSituacao.Text,
+                                prazoReserva = dtpPrazoReserva.Value.Date.ToString(),
+                                tipoMovimento = cbxTipoMovimento.Text
+                            }, new ItemModel() 
+                            {
+                                codItem = txtCodItem.Text
+                            }, new LeitorModel() 
+                            { 
+                                codLeitor = txtCodLeitor.Text
+                            });
+                            dao.AlterarStatusItem(new ItemModel()
+                            {
+                                codItem = txtCodItem.Text
+                            }, new ReservaModel()
+                            {
+                                situacao = cbxSituacao.Text
+                            });
+                            MessageBox.Show("Reserva atualizada com sucesso!");
+                            LimpaCampos();
+                        }
+                        else
+                        {
                             dao.Salvar(new ReservaModel()
                             {
                                 tipoMovimento = cbxTipoMovimento.Text,
@@ -165,7 +199,8 @@ namespace Mov_Reserva
                                 localizacao = txtLocalizacao.Text
 
                             });
-                        dao.AlterarStatusItem(new ItemModel() {
+                        }
+                            dao.AlterarStatusItem(new ItemModel() {
                             codItem = txtCodItem.Text
                         },new ReservaModel()
                         {
@@ -236,7 +271,7 @@ namespace Mov_Reserva
                     });
 
                 }
-                }
+            }
         }
     }
 }

@@ -9,6 +9,7 @@ namespace Mov_Reserva
 {
     public class ReservaModel
     {
+        public string codReserva { get; set; }
         public string tipoMovimento { get; set; }
         public string situacao { get; set; }
         public string dataReserva { get; set; }

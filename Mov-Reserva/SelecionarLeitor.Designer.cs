@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SelecionarLeitor));
             this.label7 = new System.Windows.Forms.Label();
             this.txtCodLeitor = new System.Windows.Forms.TextBox();
             this.txtNomeLeitor = new System.Windows.Forms.TextBox();
@@ -258,6 +259,7 @@
             this.Controls.Add(this.txtCodLeitor);
             this.Controls.Add(this.txtNomeLeitor);
             this.Controls.Add(this.label8);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SelecionarLeitor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Selecionar leitor";

@@ -48,6 +48,35 @@ namespace Mov_Reserva
                 }
             }
         }
+        public void Alterar(ReservaModel reserva, ItemModel item, LeitorModel leitor)
+        {
+            using (SqlCommand command = Connection.CreateCommand())
+            {
+                SqlTransaction t = Connection.BeginTransaction();
+                try
+                {
+                    //Excluir(codAutor, t);
+
+                    StringBuilder sql = new StringBuilder();
+                    sql.AppendLine($"UPDATE mvtBibReserva SET situacao = @situacao, prazoReserva = @prazoReserva, tipoMovimento = @tipoMovimento WHERE codItem = @codItem AND codLeitor = @codLeitor");
+                    command.CommandText = sql.ToString();
+                    command.Parameters.AddWithValue("@codLeitor", leitor.codLeitor);
+                    command.Parameters.Add(new SqlParameter("@codItem", item.codItem));
+                    command.Parameters.Add(new SqlParameter("@situacao", reserva.situacao));
+                    command.Parameters.Add(new SqlParameter("@prazoReserva", reserva.prazoReserva));
+                    command.Parameters.Add(new SqlParameter("@tipoMovimento", reserva.tipoMovimento));
+                    command.Transaction = t;
+                    command.ExecuteNonQuery();
+                    t.Commit();
+                }
+                catch (Exception ex)
+                {
+                    t.Rollback();
+                    throw ex;
+                }
+            }
+        }
+
         public void AlterarStatusItem(ItemModel item, ReservaModel reserva)
         {
             using (SqlCommand command = Connection.CreateCommand())
@@ -101,14 +130,15 @@ namespace Mov_Reserva
             }
             return true;
         }
-        public int Verifica(ItemModel item)
+        public int Verifica(ItemModel item, LeitorModel leitor)
         {
             using (SqlCommand command = Connection.CreateCommand())
             {
                 StringBuilder sql = new StringBuilder();
-                sql.AppendLine($"SELECT COUNT(codItem) FROM mvtBibReserva WHERE codItem = @codItem");
+                sql.AppendLine($"SELECT COUNT(codItem) FROM mvtBibReserva WHERE codItem = @codItem AND codLeitor = @codLeitor");
                 command.CommandText = sql.ToString();
                 command.Parameters.AddWithValue("@codItem", item.codItem);
+                command.Parameters.AddWithValue("@codLeitor", leitor.codLeitor);
                 int count = Convert.ToInt32(command.ExecuteScalar());
                 return count;
             }
@@ -118,7 +148,7 @@ namespace Mov_Reserva
             using (SqlCommand command = Connection.CreateCommand())
             {
                 StringBuilder sql = new StringBuilder();
-                sql.AppendLine($"SELECT nomeLeitor FROM mvtBibReserva WHERE  situacao = 'Reservado' and codItem = @codItem");
+                sql.AppendLine($"SELECT nomeLeitor FROM mvtBibReserva WHERE  situacao = 'Reservado' OR situacao = 'Emprestado' AND codItem = @codItem");
                 command.CommandText = sql.ToString();
                 command.Parameters.AddWithValue("@codItem", item.codItem);
                 string result = Convert.ToString(command.ExecuteScalar());
@@ -135,7 +165,7 @@ namespace Mov_Reserva
             using (SqlCommand command = Connection.CreateCommand())
             {
                 StringBuilder sql = new StringBuilder();
-                sql.AppendLine($"SELECT codLeitor FROM mvtBibReserva WHERE  situacao = 'Reservado' and codItem = @codItem");
+                sql.AppendLine($"SELECT codLeitor FROM mvtBibReserva WHERE  situacao = 'Reservado' OR situacao = 'Emprestado' AND codItem = @codItem");
                 command.CommandText = sql.ToString();
                 command.Parameters.AddWithValue("@codItem", item.codItem);
                 string result = Convert.ToString(command.ExecuteScalar());
@@ -238,7 +268,7 @@ namespace Mov_Reserva
             using (SqlCommand command = Connection.CreateCommand())
             {
                 StringBuilder sql = new StringBuilder();
-                sql.AppendLine("SELECT codItem, situacao, nomeItem, numExemplar, tipoItem, localizacao, codLeitor, nomeLeitor, dataReserva, prazoReserva, encerrar, tipoMovimento FROM mvtBibReserva ORDER BY codItem");
+                sql.AppendLine("SELECT codReserva, codItem, situacao, nomeItem, numExemplar, tipoItem, localizacao, codLeitor, nomeLeitor, dataReserva, prazoReserva, encerrar, tipoMovimento FROM mvtBibReserva ORDER BY codItem");
                 command.CommandText = sql.ToString();
                 using (SqlDataReader dr = command.ExecuteReader())
                 {
@@ -252,6 +282,7 @@ namespace Mov_Reserva
         }
         public ReservaModel PopulateDrReserva(SqlDataReader dr)
         {
+            string codReserva = "";
             string dataReserva = "";
             string prazoReserva = "";
             string encerrar = "";
@@ -259,7 +290,10 @@ namespace Mov_Reserva
             string situacao = "";
             LeitorModel codLeitor = null;
             ItemModel codItem = null;
-
+            if (DBNull.Value != dr["codReserva"])
+            {
+                codReserva = dr["codReserva"] + "";
+            }
             if (DBNull.Value != dr["dataReserva"])
             {
                 dataReserva = dr["dataReserva"] + "";
@@ -309,6 +343,7 @@ namespace Mov_Reserva
 
             return new ReservaModel()
             {
+                codReserva = codReserva,
                 dataReserva = dataReserva,
                 prazoReserva = prazoReserva,
                 encerrar = encerrar,

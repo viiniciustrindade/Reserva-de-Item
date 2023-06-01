@@ -57,7 +57,7 @@
             this.btnCarregarLeitor = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.dadosGrid = new System.Windows.Forms.DataGridView();
-            this.btnNovo = new System.Windows.Forms.Button();
+            this.colCodReserva = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCodItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTipoMovimento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSituacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,6 +69,7 @@
             this.colNomeLeitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDataRes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrazoReserva = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnNovo = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dadosGrid)).BeginInit();
@@ -81,7 +82,8 @@
             this.cbxTipoMovimento.FormattingEnabled = true;
             this.cbxTipoMovimento.Items.AddRange(new object[] {
             "Reservar",
-            "Devolver"});
+            "Devolver",
+            "Emprestar"});
             this.cbxTipoMovimento.Location = new System.Drawing.Point(210, 9);
             this.cbxTipoMovimento.Name = "cbxTipoMovimento";
             this.cbxTipoMovimento.Size = new System.Drawing.Size(94, 24);
@@ -281,7 +283,8 @@
             this.cbxSituacao.FormattingEnabled = true;
             this.cbxSituacao.Items.AddRange(new object[] {
             "Disponivel",
-            "Reservado"});
+            "Reservado",
+            "Emprestado"});
             this.cbxSituacao.Location = new System.Drawing.Point(811, 12);
             this.cbxSituacao.Name = "cbxSituacao";
             this.cbxSituacao.Size = new System.Drawing.Size(102, 24);
@@ -372,6 +375,7 @@
             this.dadosGrid.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dadosGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dadosGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colCodReserva,
             this.colCodItem,
             this.colTipoMovimento,
             this.colSituacao,
@@ -393,15 +397,12 @@
             this.dadosGrid.TabIndex = 26;
             this.dadosGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dadosGrid_CellDoubleClick);
             // 
-            // btnNovo
+            // colCodReserva
             // 
-            this.btnNovo.Location = new System.Drawing.Point(8, 9);
-            this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(81, 24);
-            this.btnNovo.TabIndex = 27;
-            this.btnNovo.Text = "Novo";
-            this.btnNovo.UseVisualStyleBackColor = true;
-            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
+            this.colCodReserva.HeaderText = "Codigo reserva";
+            this.colCodReserva.MinimumWidth = 6;
+            this.colCodReserva.Name = "colCodReserva";
+            this.colCodReserva.ReadOnly = true;
             // 
             // colCodItem
             // 
@@ -411,7 +412,6 @@
             this.colCodItem.MinimumWidth = 6;
             this.colCodItem.Name = "colCodItem";
             this.colCodItem.ReadOnly = true;
-            this.colCodItem.Width = 108;
             // 
             // colTipoMovimento
             // 
@@ -488,6 +488,16 @@
             this.colPrazoReserva.Name = "colPrazoReserva";
             this.colPrazoReserva.ReadOnly = true;
             // 
+            // btnNovo
+            // 
+            this.btnNovo.Location = new System.Drawing.Point(8, 9);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(81, 24);
+            this.btnNovo.TabIndex = 27;
+            this.btnNovo.Text = "Novo";
+            this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
+            // 
             // MovReserva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -508,6 +518,7 @@
             this.Controls.Add(this.cbxTipoMovimento);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MovReserva";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reserva de Item";
             this.Load += new System.EventHandler(this.MovReserva_Load);
             this.groupBox1.ResumeLayout(false);
@@ -551,6 +562,7 @@
         private System.Windows.Forms.DataGridView dadosGrid;
         private System.Windows.Forms.Button btnCarregarLeitor;
         private System.Windows.Forms.Button btnNovo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCodReserva;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCodItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTipoMovimento;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSituacao;
