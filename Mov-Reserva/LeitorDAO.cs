@@ -22,7 +22,7 @@ namespace Mov_Reserva
             using (SqlCommand command = Connection.CreateCommand())
             {
                 StringBuilder sql = new StringBuilder();
-                sql.AppendLine("SELECT codLeitor, Leitor FROM mvtBibLeitor ORDER BY codLeitor");
+                sql.AppendLine("SELECT codLeitor, Leitor FROM mvtBibLeitor ");
                 command.CommandText = sql.ToString();
                 using (SqlDataReader dr = command.ExecuteReader())
                 {

@@ -11,21 +11,22 @@ using System.Windows.Forms;
 
 namespace Mov_Reserva
 {
-    public partial class SelecionarLeitor : Form
+    public partial class BuscarLeitor : Form
     {
-        public SelecionarLeitor()
+        public BuscarLeitor()
         {
             InitializeComponent();
         }
         public string codLeitor { get; private set; }
         public string nomeLeitor { get; private set; }
 
-        public void FecharFormulario() 
+        public void FecharFormulario()
         {
             codLeitor = txtCodLeitor.Text;
             nomeLeitor = txtNomeLeitor.Text;
 
             this.Close();
+            
         }
         private void CarregarUsuariosGrid()
         {
@@ -42,7 +43,8 @@ namespace Mov_Reserva
                 }
             }
         }
-        private void SelecionarLeitor_Load(object sender, EventArgs e)
+
+        private void BuscarLeitor_Load(object sender, EventArgs e)
         {
             CarregarUsuariosGrid();
         }

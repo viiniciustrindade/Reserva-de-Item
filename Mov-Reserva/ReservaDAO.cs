@@ -48,35 +48,6 @@ namespace Mov_Reserva
                 }
             }
         }
-        public void Alterar(ReservaModel reserva, ItemModel item, LeitorModel leitor)
-        {
-            using (SqlCommand command = Connection.CreateCommand())
-            {
-                SqlTransaction t = Connection.BeginTransaction();
-                try
-                {
-                    //Excluir(codAutor, t);
-
-                    StringBuilder sql = new StringBuilder();
-                    sql.AppendLine($"UPDATE mvtBibReserva SET situacao = @situacao, prazoReserva = @prazoReserva, tipoMovimento = @tipoMovimento WHERE codItem = @codItem AND codLeitor = @codLeitor");
-                    command.CommandText = sql.ToString();
-                    command.Parameters.AddWithValue("@codLeitor", leitor.codLeitor);
-                    command.Parameters.Add(new SqlParameter("@codItem", item.codItem));
-                    command.Parameters.Add(new SqlParameter("@situacao", reserva.situacao));
-                    command.Parameters.Add(new SqlParameter("@prazoReserva", reserva.prazoReserva));
-                    command.Parameters.Add(new SqlParameter("@tipoMovimento", reserva.tipoMovimento));
-                    command.Transaction = t;
-                    command.ExecuteNonQuery();
-                    t.Commit();
-                }
-                catch (Exception ex)
-                {
-                    t.Rollback();
-                    throw ex;
-                }
-            }
-        }
-
         public void AlterarStatusItem(ItemModel item, ReservaModel reserva)
         {
             using (SqlCommand command = Connection.CreateCommand())
@@ -268,7 +239,7 @@ namespace Mov_Reserva
             using (SqlCommand command = Connection.CreateCommand())
             {
                 StringBuilder sql = new StringBuilder();
-                sql.AppendLine("SELECT codReserva, codItem, situacao, nomeItem, numExemplar, tipoItem, localizacao, codLeitor, nomeLeitor, dataReserva, prazoReserva, encerrar, tipoMovimento FROM mvtBibReserva ORDER BY codItem");
+                sql.AppendLine("SELECT codReserva, codItem, situacao, nomeItem, numExemplar, tipoItem, localizacao, codLeitor, nomeLeitor, dataReserva, prazoReserva, encerrar, tipoMovimento FROM mvtBibReserva ");
                 command.CommandText = sql.ToString();
                 using (SqlDataReader dr = command.ExecuteReader())
                 {

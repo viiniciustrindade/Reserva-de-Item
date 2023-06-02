@@ -30,11 +30,12 @@ namespace Mov_Reserva
         }
         public void AbrirSelecaoLeitor()
         {
-            SelecionarLeitor selecionar = new SelecionarLeitor();
-            selecionar.ShowDialog();
-            txtCodLeitor.Text = selecionar.codLeitor;
-            txtNomeLeitor.Text = selecionar.nomeLeitor;
 
+            BuscarLeitor selecionar1 = new BuscarLeitor();
+
+            selecionar1.ShowDialog();
+            txtCodLeitor.Text = selecionar1.codLeitor;
+            txtNomeLeitor.Text = selecionar1.nomeLeitor;
         }
         private void CarregarUsuariosGrid()
         {
@@ -68,14 +69,9 @@ namespace Mov_Reserva
 
         private void cbxTipoMovimento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbxTipoMovimento.Text == "Reservar")
+            if (cbxTipoMovimento.Text == "Devolver")
             {
-                cbxSituacao.Text = "Reservado";
-                txtCodLeitor.Enabled = true;
-            }
-            else if (cbxTipoMovimento.Text == "Devolver")
-            {
-                cbxSituacao.Text = "Disponivel";
+                cbxSituacao.Text = "Devolvido";
                 dtpDataReserva.Enabled = false;
                 txtCodLeitor.Enabled = false;
             }
@@ -153,31 +149,7 @@ namespace Mov_Reserva
                         { 
                             codLeitor = txtCodLeitor.Text
                         });
-                        if (count > 0)
-                        {
-                            dao.Alterar(new ReservaModel() { 
-                                situacao = cbxSituacao.Text,
-                                prazoReserva = dtpPrazoReserva.Value.Date.ToString(),
-                                tipoMovimento = cbxTipoMovimento.Text
-                            }, new ItemModel() 
-                            {
-                                codItem = txtCodItem.Text
-                            }, new LeitorModel() 
-                            { 
-                                codLeitor = txtCodLeitor.Text
-                            });
-                            dao.AlterarStatusItem(new ItemModel()
-                            {
-                                codItem = txtCodItem.Text
-                            }, new ReservaModel()
-                            {
-                                situacao = cbxSituacao.Text
-                            });
-                            MessageBox.Show("Reserva atualizada com sucesso!");
-                            LimpaCampos();
-                        }
-                        else
-                        {
+                        
                             dao.Salvar(new ReservaModel()
                             {
                                 tipoMovimento = cbxTipoMovimento.Text,
@@ -199,7 +171,7 @@ namespace Mov_Reserva
                                 localizacao = txtLocalizacao.Text
 
                             });
-                        }
+                        
                             dao.AlterarStatusItem(new ItemModel() {
                             codItem = txtCodItem.Text
                         },new ReservaModel()
@@ -253,17 +225,16 @@ namespace Mov_Reserva
         {
             LimpaCampos();
         }
-
-        private void txtCodItem_TextChanged(object sender, EventArgs e)
+        private void txtCodItem_TextChanged_1(object sender, EventArgs e)
         {
-            if (cbxTipoMovimento.Text == "Devolver") 
+            if (cbxTipoMovimento.Text == "Devolver")
             {
                 using (SqlConnection connection = DaoConnection.GetConexao())
                 {
                     ReservaDAO dao = new ReservaDAO(connection);
                     txtNomeLeitor.Text = dao.GetLeitorAuto(new ItemModel()
                     {
-                        codItem=txtCodItem.Text
+                        codItem = txtCodItem.Text
                     });
                     txtCodLeitor.Text = dao.GetCodLeitorAuto(new ItemModel()
                     {
@@ -271,6 +242,10 @@ namespace Mov_Reserva
                     });
 
                 }
+            }
+            else
+            {
+                return;
             }
         }
     }

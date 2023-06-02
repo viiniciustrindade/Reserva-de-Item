@@ -58,35 +58,39 @@
             // 
             // txtExemplar
             // 
-            this.txtExemplar.Location = new System.Drawing.Point(97, 34);
+            this.txtExemplar.Location = new System.Drawing.Point(73, 28);
+            this.txtExemplar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtExemplar.Name = "txtExemplar";
-            this.txtExemplar.Size = new System.Drawing.Size(88, 22);
+            this.txtExemplar.Size = new System.Drawing.Size(67, 20);
             this.txtExemplar.TabIndex = 12;
             this.txtExemplar.TextChanged += new System.EventHandler(this.txtExemplar_TextChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 37);
+            this.label4.Location = new System.Drawing.Point(9, 30);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 16);
+            this.label4.Size = new System.Drawing.Size(50, 13);
             this.label4.TabIndex = 11;
             this.label4.Text = "Exemplar";
             // 
             // txtCodItem
             // 
-            this.txtCodItem.Location = new System.Drawing.Point(97, 6);
+            this.txtCodItem.Location = new System.Drawing.Point(73, 5);
+            this.txtCodItem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCodItem.Name = "txtCodItem";
-            this.txtCodItem.Size = new System.Drawing.Size(88, 22);
+            this.txtCodItem.Size = new System.Drawing.Size(67, 20);
             this.txtCodItem.TabIndex = 10;
             this.txtCodItem.TextChanged += new System.EventHandler(this.txtCodItem_TextChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 9);
+            this.label2.Location = new System.Drawing.Point(9, 7);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 16);
+            this.label2.Size = new System.Drawing.Size(62, 13);
             this.label2.TabIndex = 9;
             this.label2.Text = "Codigo item";
             // 
@@ -94,9 +98,10 @@
             // 
             this.txtLocalizacao.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLocalizacao.Location = new System.Drawing.Point(277, 34);
+            this.txtLocalizacao.Location = new System.Drawing.Point(208, 28);
+            this.txtLocalizacao.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtLocalizacao.Name = "txtLocalizacao";
-            this.txtLocalizacao.Size = new System.Drawing.Size(445, 22);
+            this.txtLocalizacao.Size = new System.Drawing.Size(335, 20);
             this.txtLocalizacao.TabIndex = 18;
             this.txtLocalizacao.TextChanged += new System.EventHandler(this.txtLocalizacao_TextChanged);
             // 
@@ -105,18 +110,20 @@
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(191, 37);
+            this.label6.Location = new System.Drawing.Point(143, 30);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(80, 16);
+            this.label6.Size = new System.Drawing.Size(64, 13);
             this.label6.TabIndex = 17;
             this.label6.Text = "Localização";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 65);
+            this.label5.Location = new System.Drawing.Point(9, 53);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 16);
+            this.label5.Size = new System.Drawing.Size(50, 13);
             this.label5.TabIndex = 16;
             this.label5.Text = "Tipo item";
             // 
@@ -124,9 +131,10 @@
             // 
             this.txtNomeItem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNomeItem.Location = new System.Drawing.Point(277, 6);
+            this.txtNomeItem.Location = new System.Drawing.Point(208, 5);
+            this.txtNomeItem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNomeItem.Name = "txtNomeItem";
-            this.txtNomeItem.Size = new System.Drawing.Size(445, 22);
+            this.txtNomeItem.Size = new System.Drawing.Size(335, 20);
             this.txtNomeItem.TabIndex = 14;
             this.txtNomeItem.TextChanged += new System.EventHandler(this.txtNomeItem_TextChanged);
             // 
@@ -135,9 +143,10 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(191, 9);
+            this.label3.Location = new System.Drawing.Point(143, 7);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 16);
+            this.label3.Size = new System.Drawing.Size(57, 13);
             this.label3.TabIndex = 13;
             this.label3.Text = "Nome item";
             // 
@@ -165,13 +174,12 @@
             this.colEditora,
             this.colTipoItem,
             this.colSecao});
-            this.dadosGrid.Location = new System.Drawing.Point(15, 92);
-            this.dadosGrid.Margin = new System.Windows.Forms.Padding(4);
+            this.dadosGrid.Location = new System.Drawing.Point(11, 75);
             this.dadosGrid.Name = "dadosGrid";
             this.dadosGrid.ReadOnly = true;
             this.dadosGrid.RowHeadersWidth = 51;
             this.dadosGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dadosGrid.Size = new System.Drawing.Size(707, 360);
+            this.dadosGrid.Size = new System.Drawing.Size(530, 292);
             this.dadosGrid.TabIndex = 27;
             this.dadosGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dadosGrid_CellDoubleClick);
             // 
@@ -183,7 +191,7 @@
             this.colCodItem.MinimumWidth = 6;
             this.colCodItem.Name = "colCodItem";
             this.colCodItem.ReadOnly = true;
-            this.colCodItem.Width = 80;
+            this.colCodItem.Width = 65;
             // 
             // colNomeItem
             // 
@@ -289,17 +297,18 @@
             "DVD/CD",
             "Folheto",
             "Artigo"});
-            this.txtTipoItem.Location = new System.Drawing.Point(97, 61);
+            this.txtTipoItem.Location = new System.Drawing.Point(73, 50);
+            this.txtTipoItem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTipoItem.Name = "txtTipoItem";
-            this.txtTipoItem.Size = new System.Drawing.Size(121, 24);
+            this.txtTipoItem.Size = new System.Drawing.Size(92, 21);
             this.txtTipoItem.TabIndex = 28;
             this.txtTipoItem.SelectedIndexChanged += new System.EventHandler(this.txtTipoItem_SelectedIndexChanged);
             // 
             // SelecionarItemcs
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(734, 465);
+            this.ClientSize = new System.Drawing.Size(550, 378);
             this.Controls.Add(this.txtTipoItem);
             this.Controls.Add(this.dadosGrid);
             this.Controls.Add(this.txtLocalizacao);
@@ -312,8 +321,8 @@
             this.Controls.Add(this.txtCodItem);
             this.Controls.Add(this.label2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "SelecionarItemcs";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Selecionar item";
             this.Load += new System.EventHandler(this.SelecionarItemcs_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dadosGrid)).EndInit();

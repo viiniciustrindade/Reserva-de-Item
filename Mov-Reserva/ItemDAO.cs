@@ -22,7 +22,7 @@ namespace Mov_Reserva
             using (SqlCommand command = Connection.CreateCommand())
             {
                 StringBuilder sql = new StringBuilder();
-                sql.AppendLine("SELECT codItem, nome, numExemplar, tipoItem, localização FROM mvtBibItemAcervo WHERE tipoStatus = 'Disponivel' ORDER BY codItem");
+                sql.AppendLine("SELECT codItem, nome, numExemplar, tipoItem, localização FROM mvtBibItemAcervo WHERE tipoStatus = 'Devolvido' ORDER BY codItem");
                 command.CommandText = sql.ToString();
                 using (SqlDataReader dr = command.ExecuteReader())
                 {
@@ -40,7 +40,7 @@ namespace Mov_Reserva
             using (SqlCommand command = Connection.CreateCommand())
             {
                 StringBuilder sql = new StringBuilder();
-                sql.AppendLine("SELECT codItem, nome, numExemplar, tipoItem, localização FROM mvtBibItemAcervo WHERE tipoStatus = 'Reservado' OR tipoStatus = 'Emprestado' ORDER BY codItem");
+                sql.AppendLine("SELECT codItem, nome, numExemplar, tipoItem, localização FROM mvtBibItemAcervo WHERE tipoStatus = 'Emprestado' ORDER BY codItem");
                 command.CommandText = sql.ToString();
                 using (SqlDataReader dr = command.ExecuteReader())
                 {
